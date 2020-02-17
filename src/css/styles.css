@@ -1,17 +1,23 @@
+html {
+    height: 100%;
+    
+}
 body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin: 0;
 }
 
 #header {
+    display: 
     background: red;
     flex: 1;
 }
 
 #map {
     background: orange;
-    flex: 2;
+    flex: 15;
 }
 
 #footer {
