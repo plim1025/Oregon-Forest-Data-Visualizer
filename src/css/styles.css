@@ -1,3 +1,20 @@
 body {
-    background: green;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#header {
+    background: red;
+    flex: 1;
+}
+
+#map {
+    background: orange;
+    flex: 2;
+}
+
+#footer {
+    background: blue;
+    flex: 1;
 }
