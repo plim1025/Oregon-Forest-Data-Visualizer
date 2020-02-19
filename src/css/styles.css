@@ -10,17 +10,34 @@ body {
 }
 
 #header {
-    display: 
-    background: red;
+    font-family: 'Open Sans', sans-serif;
+    display: flex; 
+    background: #0F9058;
     flex: 1;
+    align-items: center;
+    color: #FFF;
+    padding-left: 10px;
 }
 
 #map {
-    background: orange;
     flex: 15;
 }
 
 #footer {
-    background: blue;
+    background: #000;
     flex: 1;
+}
+
+.button {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #7BCFA9;
+}
+
+#treeIcon {
+    height: 25px;
+    width: 25px;
 }
