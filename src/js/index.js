@@ -1,11 +1,14 @@
-let southWest = L.latLng(42, -124);
+let southWest = L.latLng(42, -126);
 let northEast = L.latLng(46, -116);
 
 let mymap = L.map('map',
-    {
-        maxBounds: L.latLngBounds(southWest, northEast)
-    }
-).setView([43, -120], 10);
+        {
+            maxBounds: L.latLngBounds(southWest, northEast)
+        }
+    )
+    .setView([42, -120], 7);
+
+mymap.options.minZoom = 7;
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,
