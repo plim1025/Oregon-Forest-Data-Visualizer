@@ -10,17 +10,32 @@ body {
 }
 
 #header {
-    display: 
-    background: red;
+    font-family: 'Open Sans', sans-serif;
+    display: flex; 
+    background: #303030;
     flex: 1;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    padding-left: 10px;
 }
 
 #map {
-    background: orange;
     flex: 15;
 }
 
 #footer {
-    background: blue;
+    background: #000;
     flex: 1;
+}
+
+.button {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
+}
+
+.button:hover {
+    color: #87C3D0;
 }
