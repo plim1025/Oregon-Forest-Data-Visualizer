@@ -29,6 +29,12 @@ body {
     flex: 1;
 }
 
+#popup {
+    background: green;
+    flex: 1;
+    height: 200px;
+}
+
 .button {
     padding: 10px;
     cursor: pointer;
