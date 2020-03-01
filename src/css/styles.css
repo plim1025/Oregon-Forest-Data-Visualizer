@@ -12,9 +12,10 @@ body {
 #header {
     font-family: 'Open Sans', sans-serif;
     display: flex; 
-    background: #0F9058;
+    background: #303030;
     flex: 1;
     align-items: center;
+    justify-content: center;
     color: #FFF;
     padding-left: 10px;
 }
@@ -31,13 +32,10 @@ body {
 .button {
     padding: 10px;
     cursor: pointer;
+    transition: 0.3s;
+    font-size: 20px;
 }
 
 .button:hover {
-    background: #7BCFA9;
-}
-
-#treeIcon {
-    height: 25px;
-    width: 25px;
+    color: #87C3D0;
 }
