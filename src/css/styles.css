@@ -57,9 +57,26 @@ body {
 }
 
 #popup {
-    background: #000;
+    background: #FFF;
     flex: 0;
 }
+
+.showModal {
+    opacity: 1;
+    animation: show .2s;
+    transform: scale(1);
+}
+@keyframes show {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    } to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
 
 .button {
     padding: 10px;
