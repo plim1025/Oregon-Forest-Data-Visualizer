@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
 html {
     height: 100%;
-    
 }
+
 body {
     font-family: 'Open Sans';
     display: flex;
@@ -16,6 +18,7 @@ body {
     flex: 1;
     align-items: center;
     color: #FFF;
+    padding-left: 10px;
 }
 
 #searchbar {
@@ -35,6 +38,7 @@ body {
 }
 
 #searchbarContent {
+    font-size: 16px;
     padding: 0 5px;
     height: 100%;
     width: 100%;
@@ -44,7 +48,7 @@ body {
 }
 
 #map {
-    flex: 15;
+    flex: 12;
 }
 
 #footer {
@@ -53,7 +57,7 @@ body {
 }
 
 #popup {
-    background: green;
+    background: #000;
     flex: 0;
 }
 
