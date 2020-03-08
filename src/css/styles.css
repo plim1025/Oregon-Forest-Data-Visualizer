@@ -31,8 +31,7 @@ body {
 
 #popup {
     background: green;
-    flex: 1;
-    height: 200px;
+    flex: 0;
 }
 
 .button {
