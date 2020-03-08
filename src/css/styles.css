@@ -15,9 +15,32 @@ body {
     background: #303030;
     flex: 1;
     align-items: center;
-    justify-content: center;
     color: #FFF;
-    padding-left: 10px;
+}
+
+#searchbar {
+    display: flex;
+    align-items: center;
+    height: 60%;
+    justify-self: stretch;
+    margin: 0 20px;
+    flex: 1;
+}
+
+#searchbarIcon {
+    height: 16px;
+    width: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#searchbarContent {
+    padding: 0 5px;
+    height: 100%;
+    width: 100%;
+    background: #f5f5f5;
+    border-radius: 2px;
+    border: 1px solid #cfcfcf !important;
 }
 
 #map {
@@ -38,7 +61,8 @@ body {
     padding: 10px;
     cursor: pointer;
     transition: 0.3s;
-    font-size: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .button:hover {
