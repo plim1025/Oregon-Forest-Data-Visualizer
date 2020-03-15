@@ -1,13 +1,8 @@
 {
   "name": "ursa",
   "version": "1.0.0",
-  "description": "\"# URSA\"",
-  "main": "index.js",
-  "dependencies": {
-    "mongodb": "^3.5.5",
-    "mongoose": "^5.9.4"
-  },
-  "devDependencies": {},
+  "description": "Paul Lim and Santiago Monleon URSA Project",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,10 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/plim1025/URSA.git"
   },
-  "author": "",
+  "author": "Santiago Monleon and Paul Lim",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/plim1025/URSA/issues"
   },
-  "homepage": "https://github.com/plim1025/URSA#readme"
+  "homepage": "https://github.com/plim1025/URSA#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.0",
+    "mongoose": "^5.9.4",
+    "path": "^0.12.7"
+  }
 }

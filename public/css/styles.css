@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans';
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+}
+
+#header {
+    display: flex; 
+    background: #303030;
+    flex: 1;
+    align-items: center;
+    color: #FFF;
+    padding-left: 10px;
+}
+
+#searchbar {
+    display: flex;
+    align-items: center;
+    height: 60%;
+    justify-self: stretch;
+    margin: 0 20px;
+    flex: 1;
+}
+
+#searchbarIcon {
+    height: 16px;
+    width: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#searchbarContent {
+    font-size: 16px;
+    padding: 0 5px;
+    height: 100%;
+    width: 100%;
+    background: #f5f5f5;
+    border-radius: 2px;
+    border: 1px solid #cfcfcf !important;
+}
+
+#map {
+    flex: 12;
+}
+
+#footer {
+    background: #000;
+    flex: 1;
+}
+
+#popup {
+<<<<<<< HEAD
+    background: #303030;
+=======
+    background: #FFF;
+>>>>>>> 9c34b8f082b76b4d4c58d368dcca88d364bfb6c4
+    flex: 0;
+}
+
+.showModal {
+    opacity: 1;
+    animation: show .2s;
+    transform: scale(1);
+}
+@keyframes show {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    } to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+
+.button {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.button:hover {
+    color: #87C3D0;
+}
