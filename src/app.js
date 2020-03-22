@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
-require('./db/mongoose');
+//require('./db/mongodb');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -20,7 +20,13 @@ app.get('/', (req, res) => {
     });
 });
 
-
+app.get('*', (req, res) => {
+    res.render('404.hbs', {
+        title: '404',
+        name: 'Santiago Monleon',
+        errorMessage: 'Page Not Found'
+    });
+});
 
 app.listen(port, () => {
     console.log('Server has started on port ' + port);
