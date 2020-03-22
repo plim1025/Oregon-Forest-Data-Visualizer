@@ -57,11 +57,7 @@ body {
 }
 
 #popup {
-<<<<<<< HEAD
-    background: #303030;
-=======
     background: #FFF;
->>>>>>> 9c34b8f082b76b4d4c58d368dcca88d364bfb6c4
     flex: 0;
 }
 
@@ -92,4 +88,5 @@ body {
 
 .button:hover {
     color: #87C3D0;
+    text-decoration: underline;
 }
