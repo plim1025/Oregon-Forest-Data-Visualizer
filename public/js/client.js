@@ -1,3 +1,4 @@
+import {geojsonFeature} from "./geoJson.js";
 
 let southWest = L.latLng(43, -124);
 let northEast = L.latLng(43.4, -123.7);
@@ -35,9 +36,6 @@ var basemaps = {
 
 L.control.layers(basemaps).addTo(mymap);
 basemaps.Forest.addTo(mymap);
-
-import {test} from "geoJson.mjs";
-console.log(test);
 
 const createPopup = (e, feature) => {
     console.log(e);
