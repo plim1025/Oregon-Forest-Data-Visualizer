@@ -47,18 +47,24 @@ body {
     border: 1px solid #cfcfcf !important;
 }
 
-#map {
+#mapParent {
+    display: flex;
+    flex-direction: column;
     flex: 12;
+}
+
+#map {
+    flex: 10;
+}
+
+#popup {
+    background: #FFF;
+    flex: 1;
 }
 
 #footer {
     background: #000;
     flex: 1;
-}
-
-#popup {
-    background: #FFF;
-    flex: 0;
 }
 
 .showModal {
