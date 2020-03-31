@@ -9,33 +9,52 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
+    <script src="../js/config.js"></script>
+    <script type = "module" src="../js/client.js"></script>
   </head>
 
   <body id="body">
     <div id="header">
-      <a href="/1.29 Mingplosion.png" download>
-    <button>Download Image</button>
-      </a>
       <div class="button" id="home">Home</div>
       <div class="button" id="downloads">Downloads</div>
       <div class="button" id="about">About</div>
+
       <div id="searchbar">
-        <input id="searchbarContent" placeholder="Search polygons"/>
-        <img id="searchbarIcon" src="../img/search_icon.png" />
+        <form id="Searchform" name="Search form">
+          <div class="searchTable">
+            <!--
+            <div class="dropdown">
+              <button class="dropbtn">Dropdown</button>
+              <div class="dropdown-content">
+                <input type="radio" name="radioButton" value="ID" checked>
+                <label for="ID">ID</label>
+                <input type="radio" name="radioButton" value="OI_KEY">
+                <label for="OI_KEY">OI_KEY</label>
+              </div>
+            </div> -->
+            <input type="radio" name="radioButton" value="ID" checked>
+            <label for="ID">ID</label>
+            <input type="radio" name="radioButton" value="OI_KEY">
+            <label for="OI_KEY">OI_KEY</label>
+          </div>
+          <div class="searchTable">
+            <img id="searchbarIcon" src="../img/search_icon.png" />
+          </div>
+          <div class="searchTable">
+            <input id="searchbarContent" placeholder="Search polygons"/>
+          </div>
+        </form>
       </div>
+      <br>
     </div>
-    <div id="map"></div>
+
+    <div id="map-container">
+      <div id="map"></div>
+    </div>
     <div id="popup"></div>
     <div id="footer"></div>
-
-  <script type="module" src="../js/client.js"></script>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="/__/firebase/7.12.0/firebase-app.js"></script>
-
-  <script src="/__/firebase/7.12.0/firebase-storage.js"></script>
-
-  <!-- Initialize Firebase -->
-  <script src="/__/firebase/init.js"></script>
-
   </body>
 </html>
