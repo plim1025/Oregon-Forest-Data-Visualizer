@@ -5,9 +5,16 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "/public/views/404.hbs",
+        "headers": [{"key": "type", "value": "application/json"}]
+      } 
     ]
   },
   "storage": {
     "rules": "storage.rules"
   }
+  
 }
