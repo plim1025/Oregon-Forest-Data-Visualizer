@@ -18,36 +18,30 @@
 
   <body id="body">
     <div id="header">
-      <div class="button" id="home">Home</div>
-      <div class="button" id="downloads">Downloads</div>
-      <div class="button" id="about">About</div>
+      <div class="button" id="home" tabindex="0">Home</div>
+      <div class="button" id="downloads" tabindex="0">Downloads</div>
+      <div class="button" id="about" tabindex="0">About</div>
 
-      <div id="searchbar">
-        <form id="Searchform" name="Search form">
-          <div class="searchTable">
-            <!--
-            <div class="dropdown">
-              <button class="dropbtn">Dropdown</button>
-              <div class="dropdown-content">
-                <input type="radio" name="radioButton" value="ID" checked>
-                <label for="ID">ID</label>
-                <input type="radio" name="radioButton" value="OI_KEY">
-                <label for="OI_KEY">OI_KEY</label>
-              </div>
-            </div> -->
-            <input type="radio" name="radioButton" value="ID" checked>
+      <form id="searchbar">
+          <!--
+          <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+              <input type="radio" name="radioButton" value="ID" checked>
+              <label for="ID">ID</label>
+              <input type="radio" name="radioButton" value="OI_KEY">
+              <label for="OI_KEY">OI_KEY</label>
+            </div>
+          </div> -->
+          <div id="radioButtons">
+            <input type="radio" name="radioButton" value="ID" tabindex="0" checked>
             <label for="ID">ID</label>
-            <input type="radio" name="radioButton" value="OI_KEY">
+            <input type="radio" name="radioButton" value="OI_KEY" tabindex="0">
             <label for="OI_KEY">OI_KEY</label>
           </div>
-          <div class="searchTable">
-            <img id="searchbarIcon" src="../img/search_icon.png" />
-          </div>
-          <div class="searchTable">
-            <input id="searchbarContent" placeholder="Search polygons"/>
-          </div>
-        </form>
-      </div>
+          <input id="searchbarContent" placeholder="Search polygons" tabindex="0"/>
+          <img id="searchbarIcon" src="../img/search_icon.png" tabindex="0"/>
+      </form>
       <br>
     </div>
 

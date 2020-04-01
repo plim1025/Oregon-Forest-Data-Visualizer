@@ -43,8 +43,18 @@ const searchStands = (e) => {
     alert("Stand " + searchType + " not found");
   }
 }
-var searchForm = document.getElementById('Searchform');
+var searchForm = document.getElementById('searchbar');
 searchForm.addEventListener("submit", searchStands);
+
+var searchbarIcon = document.getElementById('searchbarIcon');
+searchbarIcon.addEventListener('click', searchStands);
+searchbarIcon.addEventListener('keyup', e => {
+  console.log('key down');
+  // Number 13 is the "Enter" key on the keyboard
+  if(event.keyCode === 13) {
+    searchStands(e);
+  }
+});
 
 let southWest = L.latLng(43, -124);
 let northEast = L.latLng(43.4, -123.7);
