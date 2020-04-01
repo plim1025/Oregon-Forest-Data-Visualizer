@@ -1,4 +1,49 @@
 import {geojsonFeature} from "./geoJson.js";
+import {createPopup} from "./popup.js";
+
+/*
+for(var key in geojsonFeature.features){
+  if(geojsonFeature.features.hasOwnProperty(key)){
+    console.log(key + " -> " + geojsonFeature.features[key].id);
+  }
+}*/
+
+const searchStands = (e) => {
+  e.preventDefault();
+
+  var containsID = false;
+  var searchType = "";
+  const radioButtons = document.getElementsByName('radioButton');
+  const searchVal = document.getElementById('searchbarContent').value;
+  if(radioButtons[0].checked){
+    for(var i in geojsonFeature.features){
+      if(geojsonFeature.features.hasOwnProperty(i)){
+        if(geojsonFeature.features[i].id == searchVal){
+            searchType = "ID";
+            containsID = true;
+            createPopup(geojsonFeature.features[i]);
+            break;
+        }
+      }
+    }
+  }else if(radioButtons[1].checked){
+    for(var i in geojsonFeature.features){
+      if(geojsonFeature.features.hasOwnProperty(i)){
+        if(geojsonFeature.features[i].properties.OI_KEY == searchVal){
+            searchType = "OI KEY";
+            containsID = true;
+            createPopup(geojsonFeature.features[i]);
+            break;
+        }
+      }
+    }
+  }
+  if(containsID === false){
+    document.getElementById('searchbarContent').value = "Stand " + searchType + " not found";
+  }
+}
+var searchForm = document.getElementById('Searchform');
+searchForm.addEventListener("submit", searchStands);
 
 let southWest = L.latLng(43, -124);
 let northEast = L.latLng(43.4, -123.7);
@@ -37,40 +82,20 @@ var basemaps = {
 L.control.layers(basemaps).addTo(mymap);
 basemaps.Forest.addTo(mymap);
 
-const createPopup = (e, feature) => {
-    console.log(e);
-    console.log(feature);
-    let popup = document.getElementById('popup');
-    popup.innerHTML = feature.id;
-    popup.style.flex = '3';
-    let button = document.getElementById('download_button');
-    if(button != null){
-      popup.removeChild(popup.children[0]);
-    }
-
-    var download_button = document.createElement("button");
-    download_button.innerHTML = "Download FOI_SWO_" + feature.id;
-    download_button.id = 'download_button';
-    popup.appendChild(download_button);
-    download_button.addEventListener("click", function(){
-        download_csv(feature);
-    });
-
-    let parent = document.getElementById('mapParent');
-    parent.removeChild(parent.children[1]);
-    parent.insertBefore(popup, parent.children[2]);
-    const lat = e.latlng.lat;
-    const lng = e.latlng.lng;
-    if(mymap.getZoom() < 12) {
-      mymap.setView([lat, lng], 13);
-    } else {
-      mymap.setView([lat, lng]);
-    }
+const adjustMapZoom = (e) => {
+  const lat = e.latlng.lat;
+  const lng = e.latlng.lng;
+  if(mymap.getZoom() < 12) {
+    mymap.setView([lat, lng], 13);
+  } else {
+    mymap.setView([lat, lng]);
+  }
 }
 
 const onEachFeatureForest = (feature, layer) => {
     layer.on('click', e => {
-      createPopup(e, feature);
+      createPopup(feature);
+      adjustMapZoom(e);
     });
     layer.on('mouseover', function () {
       this.setStyle({
@@ -87,6 +112,7 @@ const onEachFeatureForest = (feature, layer) => {
 const onEachFeatureStreet = (feature, layer) => {
   layer.on('click', e => {
     createPopup(e, feature);
+    adjustMapZoom(e);
   });
   layer.on('mouseover', function () {
     this.setStyle({
