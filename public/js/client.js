@@ -12,7 +12,7 @@ const searchStands = (e) => {
   e.preventDefault();
 
   var containsID = false;
-  var searchType = "";
+  var searchType = "ID";
   const radioButtons = document.getElementsByName('radioButton');
   const searchVal = document.getElementById('searchbarContent').value;
   if(radioButtons[0].checked){
@@ -39,7 +39,8 @@ const searchStands = (e) => {
     }
   }
   if(containsID === false){
-    document.getElementById('searchbarContent').value = "Stand " + searchType + " not found";
+    console.log(searchType)
+    alert("Stand " + searchType + " not found");
   }
 }
 var searchForm = document.getElementById('Searchform');
