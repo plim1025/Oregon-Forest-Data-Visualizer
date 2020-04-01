@@ -12,7 +12,7 @@ const searchStands = (e) => {
   e.preventDefault();
 
   var containsID = false;
-  var searchType = "";
+  var searchType = "ID";
   const radioButtons = document.getElementsByName('radioButton');
   const searchVal = document.getElementById('searchbarContent').value;
   if(radioButtons[0].checked){
@@ -39,11 +39,22 @@ const searchStands = (e) => {
     }
   }
   if(containsID === false){
-    document.getElementById('searchbarContent').value = "Stand " + searchType + " not found";
+    console.log(searchType)
+    alert("Stand " + searchType + " not found");
   }
 }
-var searchForm = document.getElementById('Searchform');
+var searchForm = document.getElementById('searchbar');
 searchForm.addEventListener("submit", searchStands);
+
+var searchbarIcon = document.getElementById('searchbarIcon');
+searchbarIcon.addEventListener('click', searchStands);
+searchbarIcon.addEventListener('keyup', e => {
+  console.log('key down');
+  // Number 13 is the "Enter" key on the keyboard
+  if(event.keyCode === 13) {
+    searchStands(e);
+  }
+});
 
 let southWest = L.latLng(43, -124);
 let northEast = L.latLng(43.4, -123.7);

@@ -13,16 +13,31 @@
 
   <body id="body">
     <div id="header">
-      <a href="/1.29 Mingplosion.png" download>
-    <button>Download Image</button>
-      </a>
-      <div class="button" id="home">Home</div>
-      <div class="button" id="downloads">Downloads</div>
-      <div class="button" id="about">About</div>
-      <div id="searchbar">
-        <input id="searchbarContent" placeholder="Search polygons"/>
-        <img id="searchbarIcon" src="../img/search_icon.png" />
-      </div>
+      <div class="button" id="home" tabindex="0">Home</div>
+      <div class="button" id="downloads" tabindex="0">Downloads</div>
+      <div class="button" id="about" tabindex="0">About</div>
+
+      <form id="searchbar">
+          <!--
+          <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+              <input type="radio" name="radioButton" value="ID" checked>
+              <label for="ID">ID</label>
+              <input type="radio" name="radioButton" value="OI_KEY">
+              <label for="OI_KEY">OI_KEY</label>
+            </div>
+          </div> -->
+          <div id="radioButtons">
+            <input type="radio" name="radioButton" value="ID" tabindex="0" checked>
+            <label for="ID">ID</label>
+            <input type="radio" name="radioButton" value="OI_KEY" tabindex="0">
+            <label for="OI_KEY">OI_KEY</label>
+          </div>
+          <input id="searchbarContent" placeholder="Search polygons" tabindex="0"/>
+          <img id="searchbarIcon" src="../img/search_icon.png" tabindex="0"/>
+      </form>
+      <br>
     </div>
     <div id="mapParent">
       <div id="map"></div>
