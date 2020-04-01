@@ -27,6 +27,7 @@ body {
     align-items: center;
     justify-self: stretch;
     flex: 1;
+    height: 100%;
 }
 
 #radioButtons {
@@ -64,6 +65,7 @@ body {
     border-radius: 2px;
     border: 1px solid #cfcfcf;
     min-width: 400px;
+    height: 50%;
 }
 /* Styles for dropdown button that is covered by map
 .dropbtn {
