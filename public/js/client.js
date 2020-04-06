@@ -1,12 +1,23 @@
 import {geojsonFeature} from "./geoJson.js";
 import {createPopup} from "./popup.js";
 
-/*
-for(var key in geojsonFeature.features){
-  if(geojsonFeature.features.hasOwnProperty(key)){
-    console.log(key + " -> " + geojsonFeature.features[key].id);
-  }
-}*/
+//plotly
+//group data by DBH (by groups of 5) amounts, then y axis is tree height
+
+
+
+const adjustMapZoomFromSearch = (id) => {
+  var lat, lng;
+  mymap.onEachFeature(function(feature, layer){
+    console.log(feature);
+    console.log(layer);
+  });
+  /*if(mymap.getZoom() < 12) {
+    mymap.setView([lat, lng], 13);
+  } else {
+    mymap.setView([lat, lng]);
+  }*/
+}
 
 const searchStands = (e) => {
   e.preventDefault();
@@ -22,6 +33,7 @@ const searchStands = (e) => {
             searchType = "ID";
             containsID = true;
             createPopup(geojsonFeature.features[i]);
+            adjustMapZoomFromSearch(geojsonFeature.features[i].id);
             break;
         }
       }
@@ -33,10 +45,12 @@ const searchStands = (e) => {
             searchType = "OI KEY";
             containsID = true;
             createPopup(geojsonFeature.features[i]);
+            //adjustMapZoomFromSearch(geojsonFeature.features[i].id);
             break;
         }
       }
     }
+
   }
   if(containsID === false){
     document.getElementById('searchbarContent').value = "Stand " + searchType + " not found";
@@ -83,6 +97,7 @@ L.control.layers(basemaps).addTo(mymap);
 basemaps.Forest.addTo(mymap);
 
 const adjustMapZoom = (e) => {
+  console.log(e);
   const lat = e.latlng.lat;
   const lng = e.latlng.lng;
   if(mymap.getZoom() < 12) {
@@ -91,6 +106,7 @@ const adjustMapZoom = (e) => {
     mymap.setView([lat, lng]);
   }
 }
+
 
 const onEachFeatureForest = (feature, layer) => {
     layer.on('click', e => {
