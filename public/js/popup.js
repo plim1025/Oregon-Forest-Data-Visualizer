@@ -3,6 +3,7 @@ const storage = firebase.storage();
 export function createPopup(feature){
     console.log(feature);
     let popup = document.getElementById('popup');
+    popup.setAttribute("class", "popup");
     popup.innerHTML = feature.properties.OI_KEY;
     popup.style.flex = '3';
     let button = document.getElementById('download_button');
@@ -15,7 +16,6 @@ export function createPopup(feature){
     download_button.id = 'download_button';
     popup.appendChild(download_button);
 
-    
     download_button.addEventListener("click", function(){
         var fileRef = storage.ref();
 
@@ -45,8 +45,19 @@ export function createPopup(feature){
           }
         }); 
     });
-
-    let parent = document.getElementById('body');
+    /*let parent = document.getElementById('body');
     parent.removeChild(parent.children[2]);
-    parent.insertBefore(popup, parent.children[2]);
+    parent.insertBefore(popup, parent.children[2]);*/
+
+    var close_button = document.createElement("button");
+    close_button.innerText = " X ";
+    close_button.id = "close-button";
+    popup.appendChild(close_button);
+
+    var replacement_popup = document.createElement("div");
+    replacement_popup.id = "popup";
+    document.getElementById('main').appendChild(replacement_popup);
+    close_button.addEventListener("click", function() {
+      popup.remove();
+    });
 }
