@@ -11,10 +11,6 @@
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
 
-    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-storage.js"></script>
-    <script src="../js/config.js"></script>
-
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script type = "module" src="../js/client.js"></script> 
   </head>
@@ -23,8 +19,8 @@
     <div class="holder">
       <div id="header">
         <div class="button" id="home">Home</div>
-        <form method="get" acton="/downloads">
-          <div class="button" id="downloads">Downloads</div>
+        <form class="form-button" method="GET" action="/downloads">
+          <button class="button" id="download" type="submut">Downloads</button>
         </form>
         <div class="button" id="about">About</div>
 

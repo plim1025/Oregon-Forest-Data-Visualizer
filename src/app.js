@@ -6,13 +6,6 @@ const nStatic = require('node-static');
 const app = express();
 const port = process.env.PORT || 3000;
 
-var firebaseadmin = require("firebase-admin");
-var serviceAccount = require("../serviceAccountKey.json");
-firebaseadmin.initializeApp({
-    credential: firebaseadmin.credential.cert(serviceAccount),
-    databaseURL: "https://ursa-deb5a.firebaseio.com"
-});
-
 const publicDirectory = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../public/views');
 
@@ -28,7 +21,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/downloads', (req, res) => {
-    console.log(req);
     res.render('download.hbs');
 });
 

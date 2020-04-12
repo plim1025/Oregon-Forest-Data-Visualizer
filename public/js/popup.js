@@ -1,9 +1,6 @@
 export function createPopup(feature){
-  const storage = firebase.storage();
-  var storageRef = storage.ref();
   var file = "CSV/FOI_SWO_" + feature.properties.OI_KEY + ".csv";
 
-  console.log(feature);
   let popup = document.getElementById('popup');
   popup.setAttribute("class", "popup");
   popup.innerHTML = feature.properties.OI_KEY;
@@ -12,22 +9,9 @@ export function createPopup(feature){
   var download_button = document.createElement("a");
   download_button.innerHTML = "Download FOI_SWO_" + feature.properties.OI_KEY;
   download_button.id = 'download_button';
-  download_button.href = 'CSV/FOI_SWO_233750.csv';
+  download_button.href = file;
   download_button.download;
-  /*storageRef.child('data.csv').getDownloadURL().then(function(url){
-    download_button.href = url;
-  }).catch(function(error){
-    switch(error.code){
-      case 'storage/object-not-found':
-        console.log("Storage object not found");
-        break;
-      case 'storage/bucket-not-found':
-        console.log("Bucket not configured");
-        break;
-    }
-  });*/
   popup.appendChild(download_button);
-
 
   var close_button = document.createElement("button");
   close_button.innerText = " X ";

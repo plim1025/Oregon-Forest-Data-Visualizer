@@ -70,37 +70,6 @@ body {
     border-radius: 2px;
     border: 1px solid #cfcfcf !important;
 }
-/* Styles for dropdown button that is covered by map
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-  }
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content input {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  .dropdown-content input:hover {background-color: #ddd;}
-  .dropdown:hover .dropdown-content {display: block;}
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
-*/
 
 .main {
     width: 95%;
@@ -118,11 +87,6 @@ body {
     margin-bottom: 1%;
     border: 5px solid black;
     border-radius: 15px;
-}
-
-.nopopup {
-    height: 0px;
-    width: 0px;
 }
 
 .popup {
@@ -183,4 +147,8 @@ body {
 .button:hover {
     color: #87C3D0;
     text-decoration: underline;
+}
+
+.form-button {
+    background: #303030;
 }
