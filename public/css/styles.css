@@ -112,7 +112,7 @@ body {
 
 #map {
     width: 95%;
-    height: 90%;
+    height: 80%;
     padding: 0px;
     margin: auto;
     margin-bottom: 1%;
@@ -127,7 +127,6 @@ body {
 
 .popup {
     background: #FFF;
-    height: 30%;
     width: 95%;
     margin: auto;
     margin-bottom: 1%;
@@ -135,6 +134,19 @@ body {
     box-shadow: 0px 0px 10px;
     padding-left: 0.5%;
     padding-right: 0.5%;
+    overflow-y: visible;
+    overflow-x: auto;
+}
+
+.popup table {
+    border-collapse: collapse;
+    border: 2px black solid;
+    font: 12px sans-serif;
+}
+
+.popup td {
+    border: 1px black solid;
+    padding: 5px;
 }
 
 #footer {

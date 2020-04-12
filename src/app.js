@@ -1,11 +1,10 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
-//require('./db/mongodb');
+const nStatic = require('node-static');
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 
 var firebaseadmin = require("firebase-admin");
 var serviceAccount = require("../serviceAccountKey.json");
@@ -26,6 +25,11 @@ app.get('/', (req, res) => {
     res.render('index.hbs', {
         title: 'URSA',
     });
+});
+
+app.get('/downloads', (req, res) => {
+    console.log(req);
+    res.render('download.hbs');
 });
 
 app.get('*', (req, res) => {
