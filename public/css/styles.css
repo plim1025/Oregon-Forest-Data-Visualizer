@@ -113,6 +113,12 @@ body {
     padding: 5px;
 }
 
+.table-settings {
+    background: green;
+    width: 100%;
+    height: 20%;
+}
+
 #footer {
     background: #000;
     flex: 1;

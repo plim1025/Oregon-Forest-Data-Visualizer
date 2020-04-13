@@ -26,7 +26,7 @@ export function createPopup(feature){
   });
 
   var plot_div = document.createElement("div");
-  plot_div.id = "myDiv";
+  plot_div.id = "plot1";
   plot_div.style="width: 550px; height: 500px;";
   popup.appendChild(plot_div);
 
@@ -42,8 +42,7 @@ function make_plot(file){
 }
 
 function processData(allRows) {
-  var x = [], y = [];
-  var row;
+  var x = [], y = []; var row;
   for (var i=0; i<allRows.length; i++) {
     row = allRows[i];
     x.push( row['DBH'] );
@@ -90,19 +89,26 @@ function makePlotly( x, y){
       }
     }
   }
-  Plotly.newPlot('myDiv', traces, layout);
+  Plotly.newPlot('plot1', traces, layout);
 };
+
 
 function table_functionalities(file){
   var table_container = document.createElement("div");
   table_container.id = "table-container";
   document.getElementById("popup").appendChild(table_container);
 
+  var table_buttons = document.createElement("div");
+  table_buttons.id = "table-buttons";
+  table_container.appendChild(table_buttons);
+
   var toggle_table = document.createElement("button");
   toggle_table.innerText = "Expand Table";
   toggle_table.name = "expand";
   toggle_table.id = "toggle-table";
-  table_container.appendChild(toggle_table);
+  table_buttons.appendChild(toggle_table);
+
+  create_table_settings();
 
   toggle_table.addEventListener("click", function(){
     if(toggle_table.name == "expand"){
@@ -122,6 +128,33 @@ function table_functionalities(file){
   table_container.appendChild(table);
   
   retract_table(file); //Initializes the table to the smaller size
+}
+
+function create_table_settings(){
+  var table_settings = document.createElement("button");
+  table_settings.innerText = "Table Settings";
+  table_settings.id = "table-settings-button";
+  document.getElementById('table-buttons').appendChild(table_settings);
+  table_settings.addEventListener("click", function(){
+    var table_settings_container = document.createElement("div");
+    table_settings_container.id = "table-settings-container";
+    document.getElementById("table-buttons").appendChild(table_settings_container);
+
+    var submit_settings = document.createElement("button");
+    submit_settings.id = "submit-settings";
+    submit_settings.innerText = "Submit Settings";
+    table_settings_container.appendChild(submit_settings);
+
+    var exit_settings = document.createElement("button");
+    exit_settings.id = "exit-settings";
+    exit_settings.innerText = " X ";
+    table_settings_container.appendChild(exit_settings);
+
+    exit_settings.addEventListener("click", function(){
+      table_settings_container.remove();
+    });
+  });
+
 }
 
 function expand_table(file){
