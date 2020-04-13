@@ -2,19 +2,17 @@ export function createPopup(feature){
   var file = "CSV/FOI_SWO_" + feature.properties.OI_KEY + ".csv";
 
   let popup = document.getElementById('popup');
-  popup.setAttribute("class", "popup");
-  popup.innerHTML = feature.properties.OI_KEY;
-  popup.style.flex = '3';
+  popup.innerHTML = 'OI Key: ' + feature.properties.OI_KEY;
 
   var download_button = document.createElement("a");
-  download_button.innerHTML = "Download FOI_SWO_" + feature.properties.OI_KEY;
+  download_button.innerHTML = "Download CSV File";
   download_button.id = 'download_button';
   download_button.href = file;
   download_button.download;
   popup.appendChild(download_button);
 
-  var close_button = document.createElement("button");
-  close_button.innerText = " X ";
+  var close_button = document.createElement("div");
+  close_button.innerText = "X";
   close_button.id = "close-button";
   popup.appendChild(close_button);
 
@@ -27,7 +25,6 @@ export function createPopup(feature){
 
   var plot_div = document.createElement("div");
   plot_div.id = "plot1";
-  plot_div.style="width: 550px; height: 500px;";
   popup.appendChild(plot_div);
 
   make_plot(file);
@@ -66,7 +63,6 @@ function makePlotly( x, y){
         size: 19
       },
       xref: 'paper',
-      x: 0.05,
     },
     xaxis: {
       title: {
@@ -75,7 +71,7 @@ function makePlotly( x, y){
           family: 'Courier New, monospace',
           size: 15,
           color: '#7f7f7f'
-        }
+        },
       },
     },
     yaxis: {
@@ -102,10 +98,10 @@ function table_functionalities(file){
   table_buttons.id = "table-buttons";
   table_container.appendChild(table_buttons);
 
-  var toggle_table = document.createElement("button");
+  var toggle_table = document.createElement("div");
   toggle_table.innerText = "Expand Table";
   toggle_table.name = "expand";
-  toggle_table.id = "toggle-table";
+  toggle_table.id = "toggle-table-button";
   table_buttons.appendChild(toggle_table);
 
   create_table_settings();
@@ -131,21 +127,21 @@ function table_functionalities(file){
 }
 
 function create_table_settings(){
-  var table_settings = document.createElement("button");
+  var table_settings = document.createElement("div");
   table_settings.innerText = "Table Settings";
-  table_settings.id = "table-settings-button";
+  table_settings.id = "table-button-settings";
   document.getElementById('table-buttons').appendChild(table_settings);
   table_settings.addEventListener("click", function(){
     var table_settings_container = document.createElement("div");
     table_settings_container.id = "table-settings-container";
     document.getElementById("table-buttons").appendChild(table_settings_container);
 
-    var submit_settings = document.createElement("button");
-    submit_settings.id = "submit-settings";
+    var submit_settings = document.createElement("div");
+    submit_settings.id = "table-button-submit";
     submit_settings.innerText = "Submit Settings";
     table_settings_container.appendChild(submit_settings);
 
-    var exit_settings = document.createElement("button");
+    var exit_settings = document.createElement("div");
     exit_settings.id = "exit-settings";
     exit_settings.innerText = " X ";
     table_settings_container.appendChild(exit_settings);
