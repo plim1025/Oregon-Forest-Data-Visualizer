@@ -32,8 +32,8 @@ const searchStands = (e) => {
         if(geojsonFeature.features[i].id == searchVal){
             searchType = "ID";
             containsID = true;
-            createPopup(geojsonFeature.features[i]);
             adjustMapZoomFromSearch(geojsonFeature.features[i].id);
+            createPopup(geojsonFeature.features[i]);
             break;
         }
       }
@@ -110,8 +110,8 @@ const adjustMapZoom = (e) => {
 
 const onEachFeatureForest = (feature, layer) => {
     layer.on('click', e => {
-      createPopup(feature);
       adjustMapZoom(e);
+      createPopup(feature);
     });
     layer.on('mouseover', function () {
       this.setStyle({
@@ -127,8 +127,8 @@ const onEachFeatureForest = (feature, layer) => {
 
 const onEachFeatureStreet = (feature, layer) => {
   layer.on('click', e => {
-    createPopup(e, feature);
     adjustMapZoom(e);
+    createPopup(e, feature);
   });
   layer.on('mouseover', function () {
     this.setStyle({
