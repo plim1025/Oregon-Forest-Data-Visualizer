@@ -27,23 +27,15 @@
         <div id="searchbar">
           <form id="Searchform" name="Search form">
             <div class="searchTable">
-              <input type="radio" name="radioButton" value="ID" checked>
-              <label for="ID">ID</label>
-              <input type="radio" name="radioButton" value="OI_KEY">
-              <label for="OI_KEY">OI_KEY</label>
+              <img id="searchbarIcon" src="../img/search_icon.png" />
             </div>
-          </div> -->
-          <div id="radioButtons">
-            <input type="radio" name="radioButton" value="ID" tabindex="0" checked>
-            <label for="ID">ID</label>
-            <input type="radio" name="radioButton" value="OI_KEY" tabindex="0">
-            <label for="OI_KEY">OI_KEY</label>
-          </div>
-          <input id="searchbarContent" placeholder="Search polygons" tabindex="0"/>
-          <img id="searchbarIcon" src="../img/search_icon.png" tabindex="0"/>
-      </form>
-      <br>
-    </div>
+            <div class="searchTable">
+              <input id="searchbarContent" placeholder="Search polygons by OI KEY"/>
+            </div>
+          </form>
+        </div>
+        <br>
+      </div>
 
       <div class="main" id="main">
         <div id="map"></div>

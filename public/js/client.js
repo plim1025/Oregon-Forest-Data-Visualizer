@@ -23,34 +23,17 @@ const searchStands = (e) => {
   e.preventDefault();
 
   var containsID = false;
-  var searchType = "ID";
   const radioButtons = document.getElementsByName('radioButton');
   const searchVal = document.getElementById('searchbarContent').value;
-  if(radioButtons[0].checked){
-    for(var i in geojsonFeature.features){
-      if(geojsonFeature.features.hasOwnProperty(i)){
-        if(geojsonFeature.features[i].id == searchVal){
-            searchType = "ID";
-            containsID = true;
-            adjustMapZoomFromSearch(geojsonFeature.features[i].id);
-            createPopup(geojsonFeature.features[i]);
-            break;
-        }
+  for(var i in geojsonFeature.features){
+    if(geojsonFeature.features.hasOwnProperty(i)){
+      if(geojsonFeature.features[i].properties.OI_KEY == searchVal){
+          containsID = true;
+          createPopup(geojsonFeature.features[i]);
+          //adjustMapZoomFromSearch(geojsonFeature.features[i].id);
+          break;
       }
     }
-  }else if(radioButtons[1].checked){
-    for(var i in geojsonFeature.features){
-      if(geojsonFeature.features.hasOwnProperty(i)){
-        if(geojsonFeature.features[i].properties.OI_KEY == searchVal){
-            searchType = "OI KEY";
-            containsID = true;
-            createPopup(geojsonFeature.features[i]);
-            //adjustMapZoomFromSearch(geojsonFeature.features[i].id);
-            break;
-        }
-      }
-    }
-
   }
   if(containsID === false){
     console.log(searchType)
