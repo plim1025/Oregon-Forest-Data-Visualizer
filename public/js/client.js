@@ -25,18 +25,15 @@ const searchStands = (e) => {
   var containsID = false;
   const radioButtons = document.getElementsByName('radioButton');
   const searchVal = document.getElementById('searchbarContent').value;
-  if(radioButtons[1].checked){
-    for(var i in geojsonFeature.features){
-      if(geojsonFeature.features.hasOwnProperty(i)){
-        if(geojsonFeature.features[i].properties.OI_KEY == searchVal){
-            containsID = true;
-            createPopup(geojsonFeature.features[i]);
-            //adjustMapZoomFromSearch(geojsonFeature.features[i].id);
-            break;
-        }
+  for(var i in geojsonFeature.features){
+    if(geojsonFeature.features.hasOwnProperty(i)){
+      if(geojsonFeature.features[i].properties.OI_KEY == searchVal){
+          containsID = true;
+          createPopup(geojsonFeature.features[i]);
+          //adjustMapZoomFromSearch(geojsonFeature.features[i].id);
+          break;
       }
     }
-
   }
   if(containsID === false){
     document.getElementById('searchbarContent').value = "Stand " + searchType + " not found";
