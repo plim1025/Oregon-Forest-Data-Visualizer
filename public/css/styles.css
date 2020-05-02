@@ -107,6 +107,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
+    visibility: hidden;
 }
 
 #download_button {

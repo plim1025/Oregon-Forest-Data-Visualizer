@@ -19,6 +19,7 @@ export function createPopup(feature){
   close_button.addEventListener("click", function() {
     var replacement_popup = document.createElement("div");
     replacement_popup.id = "popup";
+    replacement_popup.style.visibility = 'hidden';
     document.getElementById('main').appendChild(replacement_popup);
     popup.remove();
   });

@@ -21,9 +21,7 @@ const adjustMapZoomFromSearch = (id) => {
 
 const searchStands = (e) => {
   e.preventDefault();
-
   var containsID = false;
-  const radioButtons = document.getElementsByName('radioButton');
   const searchVal = document.getElementById('searchbarContent').value;
   for(var i in geojsonFeature.features){
     if(geojsonFeature.features.hasOwnProperty(i)){
@@ -91,6 +89,8 @@ L.control.layers(basemaps).addTo(mymap);
 basemaps.Forest.addTo(mymap);
 
 const adjustMapZoom = (e) => {
+  const popup = document.getElementById('popup');
+  popup.style.visibility = 'visible';
   console.log(e);
   const lat = e.latlng.lat;
   const lng = e.latlng.lng;
