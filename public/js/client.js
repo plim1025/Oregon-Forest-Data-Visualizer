@@ -91,7 +91,6 @@ basemaps.Forest.addTo(mymap);
 const adjustMapZoom = (e) => {
   const popup = document.getElementById('popup');
   popup.style.visibility = 'visible';
-  console.log(e);
   const lat = e.latlng.lat;
   const lng = e.latlng.lng;
   if(mymap.getZoom() < 12) {
