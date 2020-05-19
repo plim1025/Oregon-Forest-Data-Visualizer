@@ -36,6 +36,12 @@ app.get('/downloads', (req, res) => {
     });
 });
 
+app.get('/about', (req, res) => {
+    res.render('about.hbs', {
+        title: 'About'
+    });
+});
+
 app.get('*', (req, res) => {
     res.render('404.hbs', {
         title: '404',
