@@ -4,7 +4,7 @@
   "description": "Paul Lim and Santiago Monleon URSA Project",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js --open"
+    "start": "nodemon src/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,13 +18,12 @@
   "homepage": "https://github.com/plim1025/URSA#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "firebase": "^7.12.0",
-    "firebase-admin": "^8.10.0",
     "fs": "0.0.1-security",
     "hbs": "^4.1.0",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.4",
     "node-static": "^0.7.11",
+    "nodemon": "^2.0.4",
     "path": "^0.12.7"
   }
 }
