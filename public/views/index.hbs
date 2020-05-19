@@ -12,16 +12,16 @@
     crossorigin=""></script>
 
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script type = "module" src="../js/client.js"></script> 
+    <script type="module" src="../js/client.js"></script> 
   </head>
 
   <body id="body">
     <div class="holder">
       <div id="header">
         <div class="button" id="home">Home</div>
-        <form class="form-button" method="GET" action="/downloads">
-          <button class="button" id="download" type="submut">Downloads</button>
-        </form>
+        <div class="button" onclick='location.href="downloads"' >
+          Downloads
+        </div>
         <div class="button" id="about">About</div>
 
         <div id="searchbar">
