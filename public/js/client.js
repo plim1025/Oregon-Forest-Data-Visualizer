@@ -98,6 +98,8 @@ const onEachFeatureForest = (feature, layer) => {
       adjustMapZoom(e);
       createPopup(feature);
       showSidebar();
+      document.getElementById('downloadButton').style.visibility = 'visible';
+      document.getElementById('toggleButton').style.visibility = 'visible';
     });
     layer.on('mouseover', function () {
       this.setStyle({
@@ -115,6 +117,9 @@ const onEachFeatureStreet = (feature, layer) => {
   layer.on('click', e => {
     adjustMapZoom(e);
     createPopup(e, feature);
+    showSidebar();
+    document.getElementById('downloadButton').style.visibility = 'visible';
+    document.getElementById('toggleButton').style.visibility = 'visible';
   });
   layer.on('mouseover', function () {
     this.setStyle({

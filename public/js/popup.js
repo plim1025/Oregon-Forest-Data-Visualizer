@@ -108,10 +108,13 @@ function retract_table(file){
 
 let infoShown = true;
 document.getElementById('hideButton').onclick = () => {
-  if(infoShown)
+  if(infoShown) {
     hideSidebar();
-  else
+    infoShown = false;
+  } else {
     showSidebar();
+    infoShown = true;
+  }
 }
 
 const hideSidebar = () => {
@@ -121,8 +124,6 @@ const hideSidebar = () => {
   const hideButton = document.getElementById('hideButton');
   hideButton.style.right = 0;
   hideButton.style.transform = 'rotate(180deg)';
-  document.getElementById('downloadButton').style.visibility = 'hidden';
-  document.getElementById('toggleButton').style.visibility = 'hidden';
 }
 
 export const showSidebar = () => {
@@ -132,6 +133,4 @@ export const showSidebar = () => {
   const hideButton = document.getElementById('hideButton');
   hideButton.style.right = '476px';
   hideButton.style.transform = 'none';
-  document.getElementById('downloadButton').style.visibility = 'visible';
-  document.getElementById('toggleButton').style.visibility = 'visible';
 }
