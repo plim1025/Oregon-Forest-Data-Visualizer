@@ -1,7 +1,7 @@
-import {make_plot} from "./graphs.js";
+import { make_plot } from './graphs.js';
 
 export function createPopup(feature){
-  var file = "CSV/FOI_SWO_" + feature.properties.OI_KEY + ".csv";
+  const file = 'CSV/FOI_SWO_' + feature.properties.OI_KEY + '.csv';
 
 
   // In table on include columns: tree_in_plot, INC - peracrearea (paco will send)
@@ -10,101 +10,37 @@ export function createPopup(feature){
   // 
 
 
-  let popup = document.getElementById('popup');
-  popup.innerHTML = 'OI Key: ' + feature.properties.OI_KEY;
+  const info = document.getElementById('info');
 
-  var download_button = document.createElement("a");
-  download_button.innerHTML = "Download CSV File";
-  download_button.id = 'download_button';
-  download_button.href = file;
-  download_button.download;
-  popup.appendChild(download_button);
+  const infoTitle = document.getElementById('infoTitle');
+  infoTitle.innerHTML = 'OI Key: ' + feature.properties.OI_KEY;
 
-  var close_button = document.createElement("div");
-  close_button.innerText = "X";
-  close_button.id = "close-button";
-  popup.appendChild(close_button);
+  info.appendChild(infoTitle);
 
-  close_button.addEventListener("click", function() {
-    var replacement_popup = document.createElement("div");
-    replacement_popup.id = "popup";
-    replacement_popup.style.visibility = 'hidden';
-    document.getElementById('main').appendChild(replacement_popup);
-    popup.remove();
-  });
+  const downloadButton = document.getElementById('downloadButton');
+  downloadButton.onclick = () => location.href = file;
+  downloadButton.style.visibility = 'visible';
+  info.appendChild(downloadButton);
 
-  var plot_div = document.createElement("div");
-  plot_div.id = "plot1";
-  popup.appendChild(plot_div);
-
+  const plotDiv = document.getElementById('plot1');
+  info.appendChild(plotDiv);
   make_plot(file, feature.properties.OI_KEY);
 
-  table_functionalities(file);
-}
-
-
-function table_functionalities(file){
-  var table_container = document.createElement("div");
-  table_container.id = "table-container";
-  document.getElementById("popup").appendChild(table_container);
-
-  var table_buttons = document.createElement("div");
-  table_buttons.id = "table-buttons";
-  table_container.appendChild(table_buttons);
-
-  var toggle_table = document.createElement("div");
-  toggle_table.innerText = "Expand Table";
-  toggle_table.name = "expand";
-  toggle_table.id = "toggle-table-button";
-  table_buttons.appendChild(toggle_table);
-
-  create_table_settings();
-
-  toggle_table.addEventListener("click", function(){
-    if(toggle_table.name == "expand"){
+  const toggleButton = document.getElementById('toggleButton');
+  toggleButton.style.visibility = 'visible';
+  toggleButton.onclick = () => {
+    if(toggleButton.innerText === 'Expand Table') {
       expand_table(file);
-      toggle_table.name = "retract";
-      toggle_table.innerText = "Retract Table";
-    }else if(toggle_table.name == "retract"){
+      toggleButton.innerText = 'Retract Table';
+    } else { 
       retract_table(file);
-      toggle_table.name = "expand";
-      toggle_table.innerText = "Expand Table";
+      toggleButton.innerText = 'Expand Table';
     }
+  };
+  info.appendChild(toggleButton);
 
-  });
-
-  var table = document.createElement("div");
-  table.id = "table";
-  table_container.appendChild(table);
-  
-  retract_table(file); //Initializes the table to the smaller size
-}
-
-function create_table_settings(){
-  var table_settings = document.createElement("div");
-  table_settings.innerText = "Table Settings";
-  table_settings.id = "table-button-settings";
-  document.getElementById('table-buttons').appendChild(table_settings);
-  table_settings.addEventListener("click", function(){
-    var table_settings_container = document.createElement("div");
-    table_settings_container.id = "table-settings-container";
-    document.getElementById("table-buttons").appendChild(table_settings_container);
-
-    var submit_settings = document.createElement("div");
-    submit_settings.id = "table-button-submit";
-    submit_settings.innerText = "Submit Settings";
-    table_settings_container.appendChild(submit_settings);
-
-    var exit_settings = document.createElement("div");
-    exit_settings.id = "exit-settings";
-    exit_settings.innerText = " X ";
-    table_settings_container.appendChild(exit_settings);
-
-    exit_settings.addEventListener("click", function(){
-      table_settings_container.remove();
-    });
-  });
-
+  const table = document.getElementById('table');
+  retract_table(file);
 }
 
 function expand_table(file){
@@ -116,16 +52,16 @@ function expand_table(file){
     var stand_data = data.split(/\r?\n|\r/);
     var table_data = '<table>';
     for(var count = 0; count < stand_data.length; count++){
-      var cell_data = stand_data[count].split(",");
+      var cell_data = stand_data[count].split(',');
       table_data += '<tr>';
       for(var col = 0; col < cell_data.length; col++){
         if(count === 0){
-          if(cell_data[col][0] === '\"'){
+          if(cell_data[col][0] === '\''){
             cell_data[col] = cell_data[col].slice(1, cell_data[col].length - 1);
           }
           table_data += '<th>' + cell_data[col] + '</th>';
         }else{
-          if(cell_data[col][0] === '\"'){
+          if(cell_data[col][0] === '\''){
             cell_data[col] = cell_data[col].slice(1, cell_data[col].length - 1);
           }
           table_data += '<td>' + cell_data[col] + '</td>';
@@ -134,7 +70,7 @@ function expand_table(file){
     }
     table_data += '</tr>';
     table_data += '</table>';
-    document.getElementById("table").innerHTML = table_data;
+    document.getElementById('table').innerHTML = table_data;
   });
 }
 
@@ -147,16 +83,16 @@ function retract_table(file){
     var stand_data = data.split(/\r?\n|\r/);
     var table_data = '<table>';
     for(var count = 0; count < 11; count++){
-      var cell_data = stand_data[count].split(",");
+      var cell_data = stand_data[count].split(',');
       table_data += '<tr>';
       for(var col = 0; col < cell_data.length; col++){
         if(count === 0){
-          if(cell_data[col][0] === '\"'){
+          if(cell_data[col][0] === '\''){
             cell_data[col] = cell_data[col].slice(1, cell_data[col].length - 1);
           }
           table_data += '<th>' + cell_data[col] + '</th>';
         }else{
-          if(cell_data[col][0] === '\"'){
+          if(cell_data[col][0] === '\''){
             cell_data[col] = cell_data[col].slice(1, cell_data[col].length - 1);
           }
           table_data += '<td>' + cell_data[col] + '</td>';
@@ -165,7 +101,6 @@ function retract_table(file){
     }
     table_data += '</tr>';
     table_data += '</table>';
-    document.getElementById("table").innerHTML = "";
-    document.getElementById("table").innerHTML = table_data;
+    document.getElementById('table').innerHTML = table_data;
   });
 }

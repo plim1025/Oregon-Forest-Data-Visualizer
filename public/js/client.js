@@ -1,5 +1,5 @@
-import {geojsonFeature} from "./geoJson.js";
-import {createPopup} from "./popup.js";
+import { geojsonFeature } from "./geoJson.js";
+import { createPopup } from "./popup.js";
 
 //plotly
 //group data by DBH (by groups of 5) amounts, then y axis is tree height
@@ -22,7 +22,7 @@ const adjustMapZoomFromSearch = (id) => {
 const searchStands = (e) => {
   e.preventDefault();
   var containsID = false;
-  const searchVal = document.getElementById('searchbarContent').value;
+  const searchVal = document.getElementById('searchbar').value;
   for(var i in geojsonFeature.features){
     if(geojsonFeature.features.hasOwnProperty(i)){
       if(geojsonFeature.features[i].properties.OI_KEY == searchVal){
@@ -34,21 +34,13 @@ const searchStands = (e) => {
     }
   }
   if(containsID === false){
-    console.log(searchType)
-    alert("Stand " + searchType + " not found");
+    alert("Stand " + searchVal + " not found");
   }
 }
-var searchForm = document.getElementById('searchbar');
-searchForm.addEventListener("submit", searchStands);
 
-var searchbarIcon = document.getElementById('searchbarIcon');
-searchbarIcon.addEventListener('click', searchStands);
-searchbarIcon.addEventListener('keyup', e => {
-  console.log('key down');
-  // Number 13 is the "Enter" key on the keyboard
-  if(event.keyCode === 13) {
+document.getElementById('searchbar').addEventListener('keyup', e => {
+  if(event.keyCode === 13)
     searchStands(e);
-  }
 });
 
 let southWest = L.latLng(43, -124);
@@ -89,8 +81,8 @@ L.control.layers(basemaps).addTo(mymap);
 basemaps.Forest.addTo(mymap);
 
 const adjustMapZoom = (e) => {
-  const popup = document.getElementById('popup');
-  popup.style.visibility = 'visible';
+  const info = document.getElementById('info');
+  info.style.visibility = 'visible';
   const lat = e.latlng.lat;
   const lng = e.latlng.lng;
   if(mymap.getZoom() < 12) {
