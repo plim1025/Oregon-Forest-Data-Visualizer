@@ -39,7 +39,6 @@ export function createPopup(feature){
   };
   info.appendChild(toggleButton);
 
-  const table = document.getElementById('table');
   retract_table(file);
 }
 
@@ -101,6 +100,8 @@ function retract_table(file){
     }
     table_data += '</tr>';
     table_data += '</table>';
-    document.getElementById('table').innerHTML = table_data;
+    const table = document.getElementById('table');
+    table.innerHTML = table_data;
+    table.parentNode.appendChild(table);
   });
 }
