@@ -39,6 +39,8 @@ export function createPopup(feature){
   };
   info.appendChild(toggleButton);
 
+  const table = document.getElementById('table');
+  table.parentNode.appendChild(table);
   retract_table(file);
 }
 
@@ -48,28 +50,28 @@ function expand_table(file){
     return response.text();
   })
   .then(data => {
-    var stand_data = data.split(/\r?\n|\r/);
-    var table_data = '<table>';
-    for(var count = 0; count < stand_data.length; count++){
-      var cell_data = stand_data[count].split(',');
-      table_data += '<tr>';
-      for(var col = 0; col < cell_data.length; col++){
+    var standData = data.split(/\r?\n|\r/);
+    var tableData = '<table>';
+    for(var count = 0; count < standData.length; count++){
+      var cellData = standData[count].split(',');
+      tableData += '<tr>';
+      for(var col = 0; col < cellData.length; col++){
         if(count === 0){
-          if(cell_data[col][0] === '\''){
-            cell_data[col] = cell_data[col].slice(1, cell_data[col].length - 1);
+          if(cellData[col][0] === '\''){
+            cellData[col] = cellData[col].slice(1, cellData[col].length - 1);
           }
-          table_data += '<th>' + cell_data[col] + '</th>';
+          tableData += '<th>' + cellData[col] + '</th>';
         }else{
-          if(cell_data[col][0] === '\''){
-            cell_data[col] = cell_data[col].slice(1, cell_data[col].length - 1);
+          if(cellData[col][0] === '\''){
+            cellData[col] = cellData[col].slice(1, cellData[col].length - 1);
           }
-          table_data += '<td>' + cell_data[col] + '</td>';
+          tableData += '<td>' + cellData[col] + '</td>';
         }
       }
     }
-    table_data += '</tr>';
-    table_data += '</table>';
-    document.getElementById('table').innerHTML = table_data;
+    tableData += '</tr>';
+    tableData += '</table>';
+    document.getElementById('table').innerHTML = tableData;
   });
 }
 
@@ -79,29 +81,50 @@ function retract_table(file){
     return response.text();
   })
   .then(data => {
-    var stand_data = data.split(/\r?\n|\r/);
-    var table_data = '<table>';
-    for(var count = 0; count < 11; count++){
-      var cell_data = stand_data[count].split(',');
-      table_data += '<tr>';
-      for(var col = 0; col < cell_data.length; col++){
+    var standData = data.split(/\r?\n|\r/);
+    var tableData = '<table>';
+    for(var count = 0; count < 11; count++) {
+      var cellData = standData[count].split(',');
+      tableData += '<tr>';
+      for(var col = 0; col < cellData.length; col++){
         if(count === 0){
-          if(cell_data[col][0] === '\''){
-            cell_data[col] = cell_data[col].slice(1, cell_data[col].length - 1);
+          if(cellData[col][0] === '\''){
+            cellData[col] = cellData[col].slice(1, cellData[col].length - 1);
           }
-          table_data += '<th>' + cell_data[col] + '</th>';
+          tableData += '<th>' + cellData[col] + '</th>';
         }else{
-          if(cell_data[col][0] === '\''){
-            cell_data[col] = cell_data[col].slice(1, cell_data[col].length - 1);
+          if(cellData[col][0] === '\''){
+            cellData[col] = cellData[col].slice(1, cellData[col].length - 1);
           }
-          table_data += '<td>' + cell_data[col] + '</td>';
+          tableData += '<td>' + cellData[col] + '</td>';
         }
       }
     }
-    table_data += '</tr>';
-    table_data += '</table>';
-    const table = document.getElementById('table');
-    table.innerHTML = table_data;
-    table.parentNode.appendChild(table);
+    tableData += '</tr>';
+    tableData += '</table>';
+    document.getElementById('table').innerHTML = tableData;
   });
+}
+
+let infoShown = true;
+document.getElementById('hideButton').onclick = () => {
+  console.log('button clicked')
+  if(infoShown) {
+    const info = document.getElementById('info');
+    info.style.visibility = 'hidden';
+    info.style.position = 'fixed';
+    const hideButton = document.getElementById('hideButton');
+    hideButton.style.right = 0;
+    hideButton.style.transform = 'rotate(180deg)';
+
+    infoShown = false;
+  } else {
+    const info = document.getElementById('info');
+    info.style.visibility = 'visible';
+    info.style.position = 'static';
+    const hideButton = document.getElementById('hideButton');
+    hideButton.style.right = '476px';
+    hideButton.style.transform = 'none';
+    infoShown = true;
+  }
 }

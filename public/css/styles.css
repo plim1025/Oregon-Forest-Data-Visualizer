@@ -71,7 +71,7 @@ body {
     justify-content: center;
     margin: 10px 150px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 4px;
     cursor: pointer;
     transition: 0.3s;
     border: 1px solid #c0c0c0;
@@ -94,6 +94,7 @@ body {
     padding: 0 10px;
     border: none;
     border-bottom: 1px solid #c0c0c0;
+    font-size: 18px;
 }
 
 #searchbarIcon {
@@ -115,7 +116,6 @@ body {
     font-size: 16px;
     padding: 0 5px;
     background: #f5f5f5;
-    border-radius: 2px;
     border: 1px solid #cfcfcf;
     min-width: 400px;
 }
@@ -129,7 +129,38 @@ body {
     width: 480px;
 }
 
-#info td {
+#table {
+    border-collapse: collapse;
+    font: 12px sans-serif;
+}
+
+#table td {
     border: 1px black solid;
     padding: 5px;
+}
+
+#hideButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 20px;
+    height: 40px;
+    right: 476px;
+    top: 50%;
+    fill: rgb(64, 64, 64);
+    border-radius: 0 9px 9px 0;
+    border: 2px solid rgb(187, 187, 187);
+    background: #f0f0f0;
+    z-index: 401;
+}
+
+#hideButton svg {
+    width: 8.7px;
+    height: 13.1px;
+}
+
+#hideButton:hover {
+    cursor: pointer;
+    background: rgb(179, 217, 255);
 }
