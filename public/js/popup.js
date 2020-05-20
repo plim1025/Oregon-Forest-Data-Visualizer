@@ -108,23 +108,30 @@ function retract_table(file){
 
 let infoShown = true;
 document.getElementById('hideButton').onclick = () => {
-  console.log('button clicked')
-  if(infoShown) {
-    const info = document.getElementById('info');
-    info.style.visibility = 'hidden';
-    info.style.position = 'fixed';
-    const hideButton = document.getElementById('hideButton');
-    hideButton.style.right = 0;
-    hideButton.style.transform = 'rotate(180deg)';
+  if(infoShown)
+    hideSidebar();
+  else
+    showSidebar();
+}
 
-    infoShown = false;
-  } else {
-    const info = document.getElementById('info');
-    info.style.visibility = 'visible';
-    info.style.position = 'static';
-    const hideButton = document.getElementById('hideButton');
-    hideButton.style.right = '476px';
-    hideButton.style.transform = 'none';
-    infoShown = true;
-  }
+const hideSidebar = () => {
+  const info = document.getElementById('info');
+  info.style.visibility = 'hidden';
+  info.style.position = 'fixed';
+  const hideButton = document.getElementById('hideButton');
+  hideButton.style.right = 0;
+  hideButton.style.transform = 'rotate(180deg)';
+  document.getElementById('downloadButton').style.visibility = 'hidden';
+  document.getElementById('toggleButton').style.visibility = 'hidden';
+}
+
+export const showSidebar = () => {
+  const info = document.getElementById('info');
+  info.style.visibility = 'visible';
+  info.style.position = 'static';
+  const hideButton = document.getElementById('hideButton');
+  hideButton.style.right = '476px';
+  hideButton.style.transform = 'none';
+  document.getElementById('downloadButton').style.visibility = 'visible';
+  document.getElementById('toggleButton').style.visibility = 'visible';
 }

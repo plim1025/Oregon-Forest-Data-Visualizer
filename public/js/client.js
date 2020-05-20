@@ -1,5 +1,5 @@
 import { geojsonFeature } from "./geoJson.js";
-import { createPopup } from "./popup.js";
+import { createPopup, showSidebar } from "./popup.js";
 
 //plotly
 //group data by DBH (by groups of 5) amounts, then y axis is tree height
@@ -97,6 +97,7 @@ const onEachFeatureForest = (feature, layer) => {
     layer.on('click', e => {
       adjustMapZoom(e);
       createPopup(feature);
+      showSidebar();
     });
     layer.on('mouseover', function () {
       this.setStyle({
