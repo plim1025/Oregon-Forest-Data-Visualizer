@@ -4,7 +4,8 @@
   "description": "Paul Lim and Santiago Monleon URSA Project",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app"
+    "start": "node src/app",
+    "heroku-postbuild": "npm install"
   },
   "repository": {
     "type": "git",

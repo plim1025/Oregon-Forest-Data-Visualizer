@@ -50,6 +50,13 @@ app.get('*', (req, res) => {
     });
 });
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('public'));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'views', 'index.hbs'));
+    });
+}
+
 app.listen(port, () => {
     console.log('Server has started on port ' + port);
 });
